@@ -1,0 +1,9 @@
+﻿  sample.cpp
+c:\users\nicks\downloads\sample2015\sample2015\sample.cpp(808): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\downloads\sample2015\sample2015\sample.cpp(877): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\downloads\sample2015\sample2015\sample.cpp(890): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\downloads\sample2015\sample2015\sample.cpp(955): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\downloads\sample2015\sample2015\sample.cpp(1360): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+sample.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+  Sample.vcxproj -> C:\Users\nicks\Downloads\Sample2015\Sample2015\.\Debug\Sample.exe
+  Sample.vcxproj -> .\Debug/Sample.pdb (Full PDB)
