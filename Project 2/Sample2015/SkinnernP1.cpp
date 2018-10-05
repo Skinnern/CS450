@@ -277,7 +277,12 @@ Animate( )
 {
 	// put animation stuff in here -- change some global variables
 	// for Display( ) to find:
-
+	float Time;
+	#define MS_IN_THE_ANIMATION_CYCLE	10000
+	//. . .
+	int ms = glutGet(GLUT_ELAPSED_TIME);	// milliseconds
+	ms %= MS_IN_THE_ANIMATION_CYCLE;
+	Time = (float)ms / (float)MS_IN_THE_ANIMATION_CYCLE;
 	// force a call to Display( ) next time it is convenient:
 
 	glutSetWindow( MainWindow );
@@ -757,7 +762,7 @@ InitLists( )
 	BoxList = glGenLists( 1 );
 	glNewList( BoxList, GL_COMPILE );
 	//inner octagonal prism
-	glColor4f(1, 0, 0, 0);
+	glColor4f(0, 1, 0, 0);
 
 
 
@@ -804,6 +809,8 @@ InitLists( )
 
 	glRotatef(90, 1, 0, 0);
 	
+
+
 	glVertex2f(BLADE_RADIUS, (BLADE_WIDTH / 2.));
 	glVertex2f(0., 0);
 	glVertex2f(BLADE_RADIUS, (-BLADE_WIDTH / 2.));
@@ -837,6 +844,9 @@ InitLists( )
 	
 	glTranslatef(XBackOffset, YBackOffset, ZBackOffset);
 	glRotatef(90, 0, 1., 0);
+	//
+
+	//rotate
 
 	glVertex2f(BLADE_RADIUS_BACK, BLADE_WIDTH_BACK / 2.);
 	glVertex2f(0, 0);
