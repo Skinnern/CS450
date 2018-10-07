@@ -189,6 +189,7 @@ int		WhichColor;				// index into Colors[ ]
 int		WhichProjection;		// ORTHO or PERSP
 int		Xmouse, Ymouse;			// mouse values
 float	Xrot, Yrot;				// rotation angles in degrees
+int BladeAngle;
 
 
 // function prototypes:
@@ -284,6 +285,8 @@ Animate( )
 	ms %= MS_IN_THE_ANIMATION_CYCLE;
 	Time = (float)ms / (float)MS_IN_THE_ANIMATION_CYCLE;
 	// force a call to Display( ) next time it is convenient:
+	BladeAngle = BladeAngle + 1;
+	printf("1");
 
 	glutSetWindow( MainWindow );
 	glutPostRedisplay( );
@@ -721,7 +724,7 @@ InitGraphics( )
 	glutTabletButtonFunc( NULL );
 	glutMenuStateFunc( NULL );
 	glutTimerFunc( -1, NULL, 0 );
-	glutIdleFunc( NULL );
+	glutIdleFunc(Animate );
 
 	// init glew (a window must be open to do this):
 
@@ -808,6 +811,7 @@ InitLists( )
 	glTranslatef(0, YTopOffset, ZTopOffset);
 
 	glRotatef(90, 1, 0, 0);
+	
 	
 
 

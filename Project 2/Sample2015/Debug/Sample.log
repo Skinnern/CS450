@@ -1,14 +1,14 @@
 ﻿  SkinnernP1.cpp
-c:\users\nicks\downloads\sample2015\sample2015\skinnernp1.cpp(808): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\downloads\sample2015\sample2015\skinnernp1.cpp(814): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\downloads\sample2015\sample2015\skinnernp1.cpp(816): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\downloads\sample2015\sample2015\skinnernp1.cpp(818): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\downloads\sample2015\sample2015\skinnernp1.cpp(820): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\downloads\sample2015\sample2015\skinnernp1.cpp(851): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\downloads\sample2015\sample2015\skinnernp1.cpp(853): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\downloads\sample2015\sample2015\skinnernp1.cpp(855): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\downloads\sample2015\sample2015\skinnernp1.cpp(857): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\downloads\sample2015\sample2015\skinnernp1.cpp(1476): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\nick\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(811): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nick\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(818): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nick\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(820): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nick\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(822): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nick\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(824): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nick\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(855): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nick\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(857): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nick\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(859): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nick\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(861): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nick\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(1480): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 SkinnernP1.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
-  Sample.vcxproj -> C:\Users\nicks\Downloads\Sample2015\Sample2015\.\Debug\Sample.exe
+  Sample.vcxproj -> C:\Users\Nick\Documents\GitHub\CS450\Project 2\Sample2015\.\Debug\Sample.exe
   Sample.vcxproj -> .\Debug/Sample.pdb (Full PDB)
