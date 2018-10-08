@@ -229,6 +229,12 @@ void	Visibility( int );
 void	Axes( float );
 void	HsvRgb( float[3], float [3] );
 
+//constant global variable for transforming -10 z spaces because i'm lazy
+const int transZform = -10;
+
+
+
+
 // main program:
 
 int
@@ -380,19 +386,21 @@ Display( )
 		//gluLookAt(0., 0., 3., 0., 0., 0., 0., 1., 0.); // normal view
 		
 		gluLookAt(0., 0., 3., 0., 0., 0., 0., 1., 0.);
+		// rotate the scene:
+		glRotatef((GLfloat)Yrot, 0., 1., 0.);
+		glRotatef((GLfloat)Xrot, 1., 0., 0.);
+		// uniformly scale the scene:
+
+		if (Scale < MINSCALE)
+			Scale = MINSCALE;
+		glScalef((GLfloat)Scale, (GLfloat)Scale, (GLfloat)Scale);
 	}
 
-	// rotate the scene:
-
-	glRotatef( (GLfloat)Yrot, 0., 1., 0. );
-	glRotatef( (GLfloat)Xrot, 1., 0., 0. );
+	
+	
 
 	//glRotatef(BladeAngle, 0, 1, 0.);
-	// uniformly scale the scene:
 
-	if( Scale < MINSCALE )
-		Scale = MINSCALE;
-	glScalef( (GLfloat)Scale, (GLfloat)Scale, (GLfloat)Scale );
 
 
 	// set the fog parameters:
@@ -905,50 +913,50 @@ InitLists( )
 
 	/*
 	glBegin(GL_POLYGON);// Draw the First from square,Square .75.
-	glVertex3f(-0.25, -.75, .75);
-	glVertex3f(0.25, -.75, .75);
-	glVertex3f(0.25, .75, .75);
-	glVertex3f(-0.25, .75, .75);
+	glVertex3f(-0.25, -.75, .75+transZform);
+	glVertex3f(0.25, -.75, .75+transZform);
+	glVertex3f(0.25, .75, .75+transZform);
+	glVertex3f(-0.25, .75, .75+transZform);
 	glEnd();
 
 	glColor4f(.75, .75, 0, 0);
 	glBegin(GL_POLYGON);// Draw the right from the front the square.
-	glVertex3f(0.25, -.75, .75);
-	glVertex3f(.75, -.75, 0.25);
-	glVertex3f(.75, .75, 0.25);
-	glVertex3f(0.25, .75, .75);
+	glVertex3f(0.25, -.75, .75+transZform);
+	glVertex3f(.75, -.75, 0.25+transZform);
+	glVertex3f(.75, .75, 0.25+transZform);
+	glVertex3f(0.25, .75, .75+transZform);
 	glEnd();
 
 	glColor4f(0, 0, .75, 0);
 	glBegin(GL_POLYGON);// Draw the straight square from right.
-	glVertex3f(.75, -.75, 0.25);
-	glVertex3f(.75, -.75, -0.25);
-	glVertex3f(.75, .75, -0.25);
-	glVertex3f(.75, .75, 0.25);
+	glVertex3f(.75, -.75, 0.25+transZform);
+	glVertex3f(.75, -.75, -0.25+transZform);
+	glVertex3f(.75, .75, -0.25+transZform);
+	glVertex3f(.75, .75, 0.25+transZform);
 	glEnd();
 
 	glColor4f(0, .75, .75, 0);
 	glBegin(GL_POLYGON);
-	glVertex3f(.75, -.75, -0.25);
-	glVertex3f(0.25, -.75, -.75);
-	glVertex3f(0.25, .75, -.75);
-	glVertex3f(.75, .75, -0.25);
+	glVertex3f(.75, -.75, -0.25+transZform);
+	glVertex3f(0.25, -.75, -.75+transZform);
+	glVertex3f(0.25, .75, -.75+transZform);
+	glVertex3f(.75, .75, -0.25+transZform);
 	glEnd();
 
 	glColor4f(0, .75, 0, 0);
 	glBegin(GL_POLYGON);// Draw the behind square.
-	glVertex3f(0.25, -.75, -.75);
-	glVertex3f(-0.25, -.75, -.75);
-	glVertex3f(-0.25, .75, -.75);
-	glVertex3f(0.25, .75, -.75);
+	glVertex3f(0.25, -.75, -.75+transZform);
+	glVertex3f(-0.25, -.75, -.75+transZform);
+	glVertex3f(-0.25, .75, -.75+transZform);
+	glVertex3f(0.25, .75, -.75+transZform);
 	glEnd();
 
 	glColor4f(.75, .75, .75, 0);
 	glBegin(GL_POLYGON);//draw the left square.
-	glVertex3f(-0.25, -.75, -.75);
-	glVertex3f(-.75, -.75, -0.25);
-	glVertex3f(-.75, .75, -0.25);
-	glVertex3f(-0.25, .75, -.75);
+	glVertex3f(-0.25, -.75, -.75+transZform);
+	glVertex3f(-.75, -.75, -0.25+transZform);
+	glVertex3f(-.75, .75, -0.25+transZform);
+	glVertex3f(-0.25, .75, -.75+transZform);
 	glEnd();
 
 	glColor4f(0, .75, .75, 0);
@@ -969,71 +977,71 @@ InitLists( )
 
 
 	//*************************************
-
+	*/
 	//outer octoganal prisim
 	glColor4f(1, 0, 0, 0);
 
 	glBegin(GL_POLYGON);// Draw the First from square,Square 1.
-	glVertex3f(-0.5, -1, 1);
-	glVertex3f(0.5, -1, 1);
-	glVertex3f(0.5, 1, 1);
-	glVertex3f(-0.5, 1, 1);
+	glVertex3f(-0.5, -1, 1+transZform);
+	glVertex3f(0.5, -1, 1+transZform);
+	glVertex3f(0.5, 1, 1+transZform);
+	glVertex3f(-0.5, 1, 1+transZform);
 	glEnd();
 
 	glColor4f(1, 1, 0, 0);
 	glBegin(GL_POLYGON);// Draw the right from the front the square.
-	glVertex3f(0.5, -1, 1);
-	glVertex3f(1, -1, 0.5);
-	glVertex3f(1, 1, 0.5);
-	glVertex3f(0.5, 1, 1);
+	glVertex3f(0.5, -1, 1+transZform);
+	glVertex3f(1, -1, 0.5+transZform);
+	glVertex3f(1, 1, 0.5+transZform);
+	glVertex3f(0.5, 1, 1+transZform);
 	glEnd();
 
 	glColor4f(0, 0, 1, 0);
 	glBegin(GL_POLYGON);// Draw the straight square from right.
-	glVertex3f(1, -1, 0.5);
-	glVertex3f(1, -1, -0.5);
-	glVertex3f(1, 1, -0.5);
-	glVertex3f(1, 1, 0.5);
+	glVertex3f(1, -1, 0.5+transZform);
+	glVertex3f(1, -1, -0.5+transZform);
+	glVertex3f(1, 1, -0.5+transZform);
+	glVertex3f(1, 1, 0.5+transZform);
 	glEnd();
 
 	glColor4f(0, 1, 1, 0);
 	glBegin(GL_POLYGON);
-	glVertex3f(1, -1, -0.5);
-	glVertex3f(0.5, -1, -1);
-	glVertex3f(0.5, 1, -1);
-	glVertex3f(1, 1, -0.5);
+	glVertex3f(1, -1, -0.5+transZform);
+	glVertex3f(0.5, -1, -1+transZform);
+	glVertex3f(0.5, 1, -1+transZform);
+	glVertex3f(1, 1, -0.5+transZform);
 	glEnd();
 
 	glColor4f(0, 1, 0, 0);
 	glBegin(GL_POLYGON);// Draw the behind square.
-	glVertex3f(0.5, -1, -1);
-	glVertex3f(-0.5, -1, -1);
-	glVertex3f(-0.5, 1, -1);
-	glVertex3f(0.5, 1, -1);
+	glVertex3f(0.5, -1, -1+transZform);
+	glVertex3f(-0.5, -1, -1+transZform);
+	glVertex3f(-0.5, 1, -1+transZform);
+	glVertex3f(0.5, 1, -1+transZform);
 	glEnd();
 
 	glColor4f(1, 1, 1, 0);
 	glBegin(GL_POLYGON);//draw the left square.
-	glVertex3f(-0.5, -1, -1);
-	glVertex3f(-1, -1, -0.5);
-	glVertex3f(-1, 1, -0.5);
-	glVertex3f(-0.5, 1, -1);
+	glVertex3f(-0.5, -1, -1+transZform);
+	glVertex3f(-1, -1, -0.5+transZform);
+	glVertex3f(-1, 1, -0.5+transZform);
+	glVertex3f(-0.5, 1, -1+transZform);
 	glEnd();
 
 	glColor4f(0, 1, 1, 0);
 	glBegin(GL_POLYGON);// Draw the square next to the left..
-	glVertex3f(-1, -1, -0.5);
-	glVertex3f(-1, -1, 0.5);
-	glVertex3f(-1, 1, 0.5);
-	glVertex3f(-1, 1, -0.5);
+	glVertex3f(-1, -1, -0.5+transZform);
+	glVertex3f(-1, -1, 0.5+transZform);
+	glVertex3f(-1, 1, 0.5+transZform);
+	glVertex3f(-1, 1, -0.5+transZform);
 	glEnd();
 
 	glColor4f(1, 0, .6, 1);
 	glBegin(GL_POLYGON);// Draw the square next to the left..
-	glVertex3f(-1, -1, 0.5);
-	glVertex3f(-0.5, -1, 1);
-	glVertex3f(-0.5, 1, 1);
-	glVertex3f(-1, 1, 0.5);
+	glVertex3f(-1, -1, 0.5+transZform);
+	glVertex3f(-0.5, -1, 1+transZform);
+	glVertex3f(-0.5, 1, 1+transZform);
+	glVertex3f(-1, 1, 0.5+transZform);
 	glEnd();
 
 	//****************************************
@@ -1043,61 +1051,61 @@ InitLists( )
 
 	glColor4f(.3, .3, .3, 0);
 	glBegin(GL_POLYGON);// leftmost
-	glVertex3f(-.75, .75, 0.25);
-	glVertex3f(-.75, .75, -0.25);
-	glVertex3f(-1, 1, -0.5);
-	glVertex3f(-1, 1, 0.5);
+	glVertex3f(-.75, .75, 0.25+transZform);
+	glVertex3f(-.75, .75, -0.25+transZform);
+	glVertex3f(-1, 1, -0.5+transZform);
+	glVertex3f(-1, 1, 0.5+transZform);
 	glEnd();
 
 	glBegin(GL_POLYGON);// Rightmost
-	glVertex3f(.75, .75, -0.25);
-	glVertex3f(.75, .75, 0.25);
-	glVertex3f(1, 1, 0.5);
-	glVertex3f(1, 1, -0.5);
+	glVertex3f(.75, .75, -0.25+transZform);
+	glVertex3f(.75, .75, 0.25+transZform);
+	glVertex3f(1, 1, 0.5+transZform);
+	glVertex3f(1, 1, -0.5+transZform);
 	glEnd();
 
 
 	glBegin(GL_POLYGON);// uppermost
-	glVertex3f(-0.25, .75, -.75);
-	glVertex3f(.25, .75, -0.75);
-	glVertex3f(.5, 1, -1);
-	glVertex3f(-.5, 1, -1);
+	glVertex3f(-0.25, .75, -.75+transZform);
+	glVertex3f(.25, .75, -0.75+transZform);
+	glVertex3f(.5, 1, -1+transZform);
+	glVertex3f(-.5, 1, -1+transZform);
 	glEnd();
 
 	glBegin(GL_POLYGON);// bottommost
-	glVertex3f(0.25, .75, .75);
-	glVertex3f(-.25, .75, 0.75);
-	glVertex3f(-.5, 1, 1);
-	glVertex3f(.5, 1, 1);
+	glVertex3f(0.25, .75, .75+transZform);
+	glVertex3f(-.25, .75, 0.75+transZform);
+	glVertex3f(-.5, 1, 1+transZform);
+	glVertex3f(.5, 1, 1+transZform);
 	glEnd();
 
 	glBegin(GL_POLYGON);// Upper Left
-	glVertex3f(-1, 1, -.5);
-	glVertex3f(-.75, .75, -.25);
-	glVertex3f(-.25, .75, -.75);
-	glVertex3f(-.5, 1, -1);
+	glVertex3f(-1, 1, -.5+transZform);
+	glVertex3f(-.75, .75, -.25+transZform);
+	glVertex3f(-.25, .75, -.75+transZform);
+	glVertex3f(-.5, 1, -1+transZform);
 	glEnd();
 
 
 	glBegin(GL_POLYGON);// Bottom Right
-	glVertex3f(1, 1, .5);
-	glVertex3f(.75, .75, .25);
-	glVertex3f(.25, .75, .75);
-	glVertex3f(.5, 1, 1);
+	glVertex3f(1, 1, .5+transZform);
+	glVertex3f(.75, .75, .25+transZform);
+	glVertex3f(.25, .75, .75+transZform);
+	glVertex3f(.5, 1, 1+transZform);
 	glEnd();
 
 	glBegin(GL_POLYGON);// Upper Right 
-	glVertex3f(1, 1, -.5);
-	glVertex3f(.75, .75, -.25);
-	glVertex3f(.25, .75, -.75);
-	glVertex3f(.5, 1, -1);
+	glVertex3f(1, 1, -.5+transZform);
+	glVertex3f(.75, .75, -.25+transZform);
+	glVertex3f(.25, .75, -.75+transZform);
+	glVertex3f(.5, 1, -1+transZform);
 	glEnd();
 
 	glBegin(GL_POLYGON);// Bottom Left
-	glVertex3f(-1, 1, .5);
-	glVertex3f(-.75, .75, .25);
-	glVertex3f(-.25, .75, .75);
-	glVertex3f(-.5, 1, 1);
+	glVertex3f(-1, 1, .5 + transZform);
+	glVertex3f(-.75, .75, .25+transZform);
+	glVertex3f(-.25, .75, .75+transZform);
+	glVertex3f(-.5, 1, 1+transZform);
 	glEnd();
 
 
@@ -1108,63 +1116,63 @@ InitLists( )
 
 	glColor4f(.3, .3, .3, 0);
 	glBegin(GL_POLYGON);// leftmost
-	glVertex3f(-.75, -.75, 0.25);
-	glVertex3f(-.75, -.75, -0.25);
-	glVertex3f(-1, -1, -0.5);
-	glVertex3f(-1, -1, 0.5);
+	glVertex3f(-.75, -.75, 0.25+transZform);
+	glVertex3f(-.75, -.75, -0.25+transZform);
+	glVertex3f(-1, -1, -0.5+transZform);
+	glVertex3f(-1, -1, 0.5+transZform);
 	glEnd();
 
 	glBegin(GL_POLYGON);// Rightmost
-	glVertex3f(.75, -.75, -0.25);
-	glVertex3f(.75, -.75, 0.25);
-	glVertex3f(1, -1, 0.5);
-	glVertex3f(1, -1, -0.5);
+	glVertex3f(.75, -.75, -0.25+transZform);
+	glVertex3f(.75, -.75, 0.25+transZform);
+	glVertex3f(1, -1, 0.5+transZform);
+	glVertex3f(1, -1, -0.5+transZform);
 	glEnd();
 
 
 	glBegin(GL_POLYGON);// uppermost
-	glVertex3f(-0.25, -.75, -.75);
-	glVertex3f(.25, -.75, -0.75);
-	glVertex3f(.5, -1, -1);
-	glVertex3f(-.5, -1, -1);
+	glVertex3f(-0.25, -.75, -.75+transZform);
+	glVertex3f(.25, -.75, -0.75+transZform);
+	glVertex3f(.5, -1, -1+transZform);
+	glVertex3f(-.5, -1, -1+transZform);
 	glEnd();
 
 	glBegin(GL_POLYGON);// bottommost
-	glVertex3f(0.25, -.75, .75);
-	glVertex3f(-.25, -.75, 0.75);
-	glVertex3f(-.5, -1, 1);
-	glVertex3f(.5, -1, 1);
+	glVertex3f(0.25, -.75, .75+transZform);
+	glVertex3f(-.25, -.75, 0.75+transZform);
+	glVertex3f(-.5, -1, 1+transZform);
+	glVertex3f(.5, -1, 1+transZform);
 	glEnd();
 
 	glBegin(GL_POLYGON);// Upper Left
-	glVertex3f(-1, -1, -.5);
-	glVertex3f(-.75, -.75, -.25);
-	glVertex3f(-.25, -.75, -.75);
-	glVertex3f(-.5, -1, -1);
+	glVertex3f(-1, -1, -.5+transZform);
+	glVertex3f(-.75, -.75, -.25+transZform);
+	glVertex3f(-.25, -.75, -.75+transZform);
+	glVertex3f(-.5, -1, -1+transZform);
 	glEnd();
 
 
 	glBegin(GL_POLYGON);// Bottom Right
-	glVertex3f(1, -1, .5);
-	glVertex3f(.75, -.75, .25);
-	glVertex3f(.25, -.75, .75);
-	glVertex3f(.5, -1, 1);
+	glVertex3f(1, -1, .5+transZform);
+	glVertex3f(.75, -.75, .25+transZform);
+	glVertex3f(.25, -.75, .75+transZform);
+	glVertex3f(.5, -1, 1+transZform);
 	glEnd();
 
 	glBegin(GL_POLYGON);// Upper Right 
-	glVertex3f(1, -1, -.5);
-	glVertex3f(.75, -.75, -.25);
-	glVertex3f(.25, -.75, -.75);
-	glVertex3f(.5, -1, -1);
+	glVertex3f(1, -1, -.5+transZform);
+	glVertex3f(.75, -.75, -.25+transZform);
+	glVertex3f(.25, -.75, -.75+transZform);
+	glVertex3f(.5, -1, -1+transZform);
 	glEnd();
 
 	glBegin(GL_POLYGON);// Bottom Left
-	glVertex3f(-1, -1, .5);
-	glVertex3f(-.75, -.75, .25);
-	glVertex3f(-.25, -.75, .75);
-	glVertex3f(-.5, -1, 1);
+	glVertex3f(-1, -1, .5+transZform);
+	glVertex3f(-.75, -.75, .25+transZform);
+	glVertex3f(-.25, -.75, .75+transZform);
+	glVertex3f(-.5, -1, 1+transZform);
 	glEnd();
-	*/
+	
 	glEndList( );
 	
 
