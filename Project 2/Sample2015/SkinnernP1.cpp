@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <iostream>
+using std::cout;
 
 
 #define _USE_MATH_DEFINES
@@ -100,6 +102,11 @@ enum Projections
 	PERSP
 };
 
+enum currviews {
+	NORM,
+	COPIT
+};
+
 
 // which button:
 
@@ -187,9 +194,11 @@ int		MainWindow;				// window id for main graphics window
 float	Scale;					// scaling factor
 int		WhichColor;				// index into Colors[ ]
 int		WhichProjection;		// ORTHO or PERSP
+int		WhichView;
 int		Xmouse, Ymouse;			// mouse values
 float	Xrot, Yrot;				// rotation angles in degrees
-int BladeAngle;
+int		BladeAngle = 0.0f;
+int		Rear_BladeAngle = 0.0f;
 
 
 // function prototypes:
@@ -285,11 +294,20 @@ Animate( )
 	ms %= MS_IN_THE_ANIMATION_CYCLE;
 	Time = (float)ms / (float)MS_IN_THE_ANIMATION_CYCLE;
 	// force a call to Display( ) next time it is convenient:
-	BladeAngle = BladeAngle + 1;
-	printf("1");
+	//BladeAngle = BladeAngle + 1.0f;
+	BladeAngle = Time * 360;
+
+	//Rear_BladeAngle = Rear_BladeAngle
+	Rear_BladeAngle = (Time * 360)*3;
+
+	//printf("1");
+	cout << Rear_BladeAngle << " ";
 
 	glutSetWindow( MainWindow );
+
 	glutPostRedisplay( );
+
+	//glutSwapBuffers();
 }
 
 
@@ -355,16 +373,21 @@ Display( )
 
 
 	// set the eye position, look-at position, and up-vector:
-
-	gluLookAt( 0., 0., 3.,     0., 0., 0.,     0., 1., 0. );
-
+	if (WhichView == COPIT) {
+		gluLookAt(-0.4, 1.8, -4.9, 0., 0., -10., 0., 1., 0.);
+	}
+	else {
+		//gluLookAt(0., 0., 3., 0., 0., 0., 0., 1., 0.); // normal view
+		
+		gluLookAt(0., 0., 3., 0., 0., 0., 0., 1., 0.);
+	}
 
 	// rotate the scene:
 
 	glRotatef( (GLfloat)Yrot, 0., 1., 0. );
 	glRotatef( (GLfloat)Xrot, 1., 0., 0. );
 
-
+	//glRotatef(BladeAngle, 0, 1, 0.);
 	// uniformly scale the scene:
 
 	if( Scale < MINSCALE )
@@ -554,6 +577,14 @@ DoProjectMenu( int id )
 	glutPostRedisplay( );
 }
 
+void
+DoCurrentView(int id) {
+	WhichView = id;
+
+	glutSetWindow(MainWindow);
+	glutPostRedisplay();
+}
+
 
 // use glut to display a string of characters using a raster font:
 
@@ -641,6 +672,10 @@ InitMenus( )
 	glutAddMenuEntry( "Orthographic",  ORTHO );
 	glutAddMenuEntry( "Perspective",   PERSP );
 
+	int currviewmenu = glutCreateMenu(DoCurrentView);
+	glutAddMenuEntry("Normal", NORM);
+	glutAddMenuEntry("Cockpit", COPIT);
+
 	int mainmenu = glutCreateMenu( DoMainMenu );
 	glutAddSubMenu(   "Axes",          axesmenu);
 	glutAddSubMenu(   "Colors",        colormenu);
@@ -648,6 +683,7 @@ InitMenus( )
 	glutAddSubMenu(   "Depth Fighting",depthfightingmenu);
 	glutAddSubMenu(   "Depth Cue",     depthcuemenu);
 	glutAddSubMenu(   "Projection",    projmenu );
+	glutAddSubMenu( "Viewpoint",	   currviewmenu);
 	glutAddMenuEntry( "Reset",         RESET );
 	glutAddSubMenu(   "Debug",         debugmenu);
 	glutAddMenuEntry( "Quit",          QUIT );
@@ -756,12 +792,6 @@ InitLists( )
 	glutSetWindow( MainWindow );
 
 	// create the object:
-
-
-
-
-
-
 	BoxList = glGenLists( 1 );
 	glNewList( BoxList, GL_COMPILE );
 	//inner octagonal prism
@@ -809,7 +839,7 @@ InitLists( )
 	glBegin(GL_TRIANGLES);
 	glPushMatrix();
 	glTranslatef(0, YTopOffset, ZTopOffset);
-
+	glRotatef(BladeAngle, 0, 1, 0);
 	glRotatef(90, 1, 0, 0);
 	
 	
@@ -823,7 +853,10 @@ InitLists( )
 	glVertex2f(0., 0);
 	glVertex2f(-BLADE_RADIUS, BLADE_WIDTH / 2. );
 
+	//glutSwapBuffers();
 	glEnd();
+	glPopMatrix();
+	
 	//****************************************************************************
 
 	//BACK BLADE
@@ -841,12 +874,13 @@ InitLists( )
 
 	
 	glBegin(GL_TRIANGLES);
-	glPopMatrix();
-
+	glPushMatrix();
+	//glLoadIdentity();
 	//glTranslatef(XBackOffset, YBackOffset, ZBackOffset);
 	//glPushMatrix();
 	
 	glTranslatef(XBackOffset, YBackOffset, ZBackOffset);
+	//glRotatef(BladeAngle, 1, 0, 0);
 	glRotatef(90, 0, 1., 0);
 	//
 
@@ -864,6 +898,7 @@ InitLists( )
 	//glLoadIdentity();
 	//glPopMatrix();
 	glEnd();
+	glPopMatrix();
 	//****************************************************************************
 
 
