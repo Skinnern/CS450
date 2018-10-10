@@ -180,7 +180,13 @@ const GLfloat FOGSTART    = { 1.5 };
 const GLfloat FOGEND      = { 4. };
 #define BLADE_RADIUS		 5.0
 #define BLADE_WIDTH		 0.4
-
+#define YTopOffset 2.9
+#define ZTopOffset -2
+#define XBackOffset .5
+#define YBackOffset 2.5
+#define ZBackOffset 9
+#define BLADE_RADIUS_BACK		 1.5
+#define BLADE_WIDTH_BACK		 0.4
 
 // non-constant global variables:
 
@@ -457,12 +463,21 @@ Display( )
 	//BoxList = glGenLists(1);
 	//glNewList(BoxList, GL_COMPILE);
 
-	
-
-		glCallList(TopBladeList);
-		glCallList(BackBladeList);
-		glCallList(EightAwesomeSidesList);
 		glCallList(BoxList);
+		glCallList(EightAwesomeSidesList);
+		glPushMatrix();
+		glTranslatef(0, YTopOffset, ZTopOffset);
+		glRotatef(BladeAngle*3, 0, 1, 0);
+		glCallList(TopBladeList);
+		glPopMatrix();
+		glPushMatrix();
+		glTranslatef(XBackOffset, YBackOffset, ZBackOffset);
+		glRotatef(BladeAngle * 9, XBackOffset, 0, 0);
+		glCallList(BackBladeList);
+		
+		glPopMatrix();
+		
+		
 
 		if (DepthFightingOn != 0)
 		{
@@ -819,8 +834,7 @@ InitGraphics( )
 
 void TopBlade() {
 	//BLADES:
-#define YTopOffset 2.9
-#define ZTopOffset -2
+
 	//TOP BLADE
 	//***************************************************************************
 	// blade parameters:
@@ -830,9 +844,10 @@ void TopBlade() {
 	// draw the helicopter blade with radius BLADE_RADIUS and
 	//	width BLADE_WIDTH centered at (0.,0.,0.) in the XY plane
 	glColor4f(1, 1, 1, 0);
-	glBegin(GL_TRIANGLES);
 	glPushMatrix();
-	glTranslatef(0, YTopOffset, ZTopOffset);
+	glBegin(GL_TRIANGLES);
+	
+	
 	glRotatef(90, 1, 0, 0);
 
 	glVertex2f(BLADE_RADIUS, (BLADE_WIDTH / 2.));
@@ -846,7 +861,7 @@ void TopBlade() {
 	NickRot = NickRot++;
 	glutSwapBuffers();
 	glEnd();
-	//glPopMatrix();
+	glPopMatrix();
 
 	//****************************************************************************
 }
@@ -856,25 +871,19 @@ void BackBlade() {
 
 	//BACK BLADE
 
-#define XBackOffset .5
-#define YBackOffset 2.5
-#define ZBackOffset 9
-	// blade parameters:
 
-#define BLADE_RADIUS_BACK		 1.5
-#define BLADE_WIDTH_BACK		 0.4
 	//****************************************************************************
 	// draw the helicopter blade with radius BLADE_RADIUS and
 	//	width BLADE_WIDTH centered at (0.,0.,0.) in the XY plane
 
 
 	glBegin(GL_TRIANGLES);
-	//glPushMatrix();
+	glPushMatrix();
 	//glLoadIdentity();
 	//glTranslatef(XBackOffset, YBackOffset, ZBackOffset);
 	//glPushMatrix();
 
-	glTranslatef(XBackOffset, YBackOffset, ZBackOffset);
+	//glTranslatef(XBackOffset, YBackOffset, ZBackOffset);
 	//glRotatef(BladeAngle, 1, 0, 0);
 	glRotatef(90, 0, 1., 0);
 	//
@@ -893,7 +902,7 @@ void BackBlade() {
 	//glLoadIdentity();
 	//glPopMatrix();
 	glEnd();
-	//glPopMatrix();
+	glPopMatrix();
 	//****************************************************************************
 
 }
