@@ -1,16 +1,16 @@
 ﻿  SkinnernP1.cpp
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(827): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(830): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(832): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(834): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(836): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(876): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(878): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(880): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(882): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(953): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(966): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(1031): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\mast3\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(835): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\mast3\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(838): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\mast3\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(840): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\mast3\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(842): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\mast3\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(844): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\mast3\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(884): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\mast3\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(886): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\mast3\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(888): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\mast3\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(890): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\mast3\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(961): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\mast3\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(974): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\mast3\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(1039): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 SkinnernP1.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
-  Sample.vcxproj -> C:\Users\nicks\Documents\GitHub\CS450\Project 2\Sample2015\.\Debug\Sample.exe
+  Sample.vcxproj -> C:\Users\mast3\Documents\GitHub\CS450\Project 2\Sample2015\.\Debug\Sample.exe
   Sample.vcxproj -> .\Debug/Sample.pdb (Full PDB)

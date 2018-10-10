@@ -186,6 +186,9 @@ const GLfloat FOGEND      = { 4. };
 
 int		ActiveButton;			// current button that is down
 GLuint	AxesList;				// list to hold the axes
+GLuint TopBladeList;
+GLuint BackBladeList;
+GLuint EightAwesomeSidesList;
 int		AxesOn;					// != 0 means to draw the axes
 int		DebugOn;				// != 0 means to print debugging info
 int		DepthCueOn;				// != 0 means to use intensity depth cueing
@@ -454,6 +457,11 @@ Display( )
 	//BoxList = glGenLists(1);
 	//glNewList(BoxList, GL_COMPILE);
 
+	
+
+		glCallList(TopBladeList);
+		glCallList(BackBladeList);
+		glCallList(EightAwesomeSidesList);
 		glCallList(BoxList);
 
 		if (DepthFightingOn != 0)
@@ -838,7 +846,7 @@ void TopBlade() {
 	NickRot = NickRot++;
 	glutSwapBuffers();
 	glEnd();
-	glPopMatrix();
+	//glPopMatrix();
 
 	//****************************************************************************
 }
@@ -861,7 +869,7 @@ void BackBlade() {
 
 
 	glBegin(GL_TRIANGLES);
-	glPushMatrix();
+	//glPushMatrix();
 	//glLoadIdentity();
 	//glTranslatef(XBackOffset, YBackOffset, ZBackOffset);
 	//glPushMatrix();
@@ -885,7 +893,7 @@ void BackBlade() {
 	//glLoadIdentity();
 	//glPopMatrix();
 	glEnd();
-	glPopMatrix();
+	//glPopMatrix();
 	//****************************************************************************
 
 }
@@ -1101,11 +1109,6 @@ InitLists( )
 	glNewList( BoxList, GL_COMPILE );
 	//inner octagonal prism
 	glColor4f(0, 1, 0, 0);
-
-
-
-
-
 	//**************************************************************************
 	int i;
 	struct edge *ep;
@@ -1126,14 +1129,34 @@ InitLists( )
 	glEnd();
 	glPopMatrix();
 	//***************************************************************************
-	glPushMatrix();
+	//glPushMatrix();
+	glEndList();
 	glRotatef(BladeAngle, 0, 1, 0);
+
+	TopBladeList = glGenLists(1);
+	glNewList(TopBladeList, GL_COMPILE);
 	TopBlade();
+
+	glEndList();
+
+
 	glPopMatrix();
 	glutPostRedisplay();
+
+	BackBladeList = glGenLists(1);
+	glNewList(BackBladeList, GL_COMPILE);
+
 	BackBlade();
+
+	glEndList();
+
 	glutPostRedisplay();
+	
+	EightAwesomeSidesList = glGenLists(1);
+	glNewList(EightAwesomeSidesList, GL_COMPILE);
 	EightAwesomeSides();
+
+	glEndList();
 	glutPostRedisplay();
 	
 	glEndList( );
