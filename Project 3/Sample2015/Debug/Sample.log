@@ -1,0 +1,6 @@
+﻿  sample.cpp
+c:\users\nick\desktop\sample2015\sample.cpp(579): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nick\desktop\sample2015\sample.cpp(1331): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+sample.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+  Sample.vcxproj -> C:\Users\Nick\Desktop\Sample2015\.\Debug\Sample.exe
+  Sample.vcxproj -> .\Debug/Sample.pdb (Full PDB)
