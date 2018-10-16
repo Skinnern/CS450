@@ -20,7 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\worldtex.bmp">
+    <Image Include="worldtex.bmp">
       <Filter>Source Files</Filter>
     </Image>
   </ItemGroup>
