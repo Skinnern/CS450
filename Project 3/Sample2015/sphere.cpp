@@ -71,8 +71,8 @@ MjbSphere( float radius, int slices, int stacks )
 			p->nz = z;
 			if( view == 2 )
 			{
-				p->s = ( lng + M_PI    ) / ( 2.*M_PI );
-				p->t = ( lat + M_PI/2. ) / M_PI + distort/360.;
+				p->s = ( lng + M_PI    ) / ( 2.*M_PI ) + sin((distortcurr*(distort + 1.))*PI / 180);
+				p->t = ( lat + M_PI/2. ) / M_PI + sin((distortcurr*(distort + 1.))*PI / 180);
 			}
 			else
 			{
@@ -115,7 +115,8 @@ MjbSphere( float radius, int slices, int stacks )
 	glBegin( GL_QUADS );
 	for( int ilng = 0; ilng < NumLngs-1; ilng++ )
 	{
-		p = PtsPointer( 0, ilng );
+		
+		p = PtsPointer( 0, ilng * distort);
 		DrawPoint( p );
 
 		p = PtsPointer( 0, ilng+1 );

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <math.h>       /* sin */
 //#include "worldtex.bmp"
 
 
@@ -33,7 +34,7 @@ float Time;
 
 // title of these windows:
 
-const char *WINDOWTITLE = { "Project 3 -- Sean Rettig" };
+const char *WINDOWTITLE = { "Project 3 -- Nicholas Skinner" };
 const char *GLUITITLE = { "User Interface Window" };
 
 
@@ -173,7 +174,7 @@ const GLfloat FOGEND = { 4. };
 //  6. The transformations to be reset
 //  7. The program to quit
 //
-// Author:   Sean Rettig
+// Author:   Nicholas Skinner
 
 // non-constant global variables:
 
@@ -194,6 +195,7 @@ bool    Frozen;
 unsigned char *texture;
 int texWidth, texHeight;
 float distort = 0.; // Amount to distort
+float distortcurr = 1.; //positive or negative
 
 #include "bmptotexture.cpp"
 #include "sphere.cpp"
@@ -322,13 +324,13 @@ Animate()
 	int ms = glutGet(GLUT_ELAPSED_TIME);
 	ms %= MS_PER_CYCLE;
 	Time = (float)ms / (float)MS_PER_CYCLE;		// [0.,1.)
-	
-	
-	distort += 0.5;
-	if (distort >= 360.) {
-		distort = 0.;
-	}
+	using namespace std;
+	distort += .5;
 
+	//std::cout << distort;
+	//if (distort > 1){
+		//distortcurr = distortcurr * -1.;
+	//}
 	// force a call to Display( ) next time it is convenient:
 
 	//rotate
