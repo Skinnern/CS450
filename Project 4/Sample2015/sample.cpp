@@ -202,7 +202,7 @@ int Light2On = 1;
 int Light3On = 1;
 int Light4On = 1;
 float White[] = { 1.,1.,1.,1. };
-float ROAD_APOTHEM = 10.;
+float Orbit_Radius = 10.;
 float moonHeight = 0.;
 int ROAD_GRANULARITY = 500;
 float moonSize = 1.;
@@ -460,6 +460,7 @@ Display()
 	}
 	//***************************************************************************************************************
 	//LIGHTING
+	glPushMatrix();
 	glEnable(GL_LIGHTING);
 
 	// outer Space Stoplight
@@ -467,7 +468,6 @@ Display()
 	glPushMatrix();
 	glRotatef(15., 0., 1., 0.);
 	glTranslatef(3., 0.0, 0.);
-	glScalef(1., 3., 1.);
 	glColor3f(0., 0., 0.);
 	glutSolidCube(1.);
 	glScalef(1., 0.33, 1.);
@@ -542,7 +542,7 @@ Display()
 	glPushMatrix();
 	SetMaterial(0.5, 0., 0., 1.);
 	glRotatef((-cos(Time*M_PI) + 1) * 180, 0., 1., 0.);
-	glTranslatef(ROAD_APOTHEM, moonHeight + moonSize / 2, 0.);
+	glTranslatef(Orbit_Radius, moonHeight + moonSize / 2, 0.);
 	glScalef(1., 1., 1.);
 	SetMaterial(0.6, 0.6, 0.6, 0.);
 	glRotatef(90., 1., 0., 0.);
@@ -550,9 +550,51 @@ Display()
 	glDisable(GL_LIGHTING);
 	glColor3f(1., 1., 1.);
 	glPushMatrix();
+		
+		glTranslatef(4, 0, 0);
+		glutSolidSphere(.15, 5, 5);
+		
+		if (Light0On) {
+			SetSpotLight(GL_LIGHT0, 0., 0., 0., 1., 0., 0., 1., 1., 1.);
+		}
+		else {
+			glDisable(GL_LIGHT0);
+		}
+		
+	glPopMatrix();
+	glPushMatrix();
+	//glTranslatef(moonSize / 4, -0.2, -moonSize / 2);
+	glPopMatrix();
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	//**************************************************************************************************************
+
+	// Draw Super Duper moon
+	//will be dull
+	//will have light pointing inward
+	//will have rough lighting
+	glShadeModel(GL_FLAT);
+	glPushMatrix();
+	SetMaterial(0.5, 0., 0., 1);
+	glRotatef((cos(Time*M_PI)+1) * 180, 0., 1., 0.);
+	glTranslatef(Orbit_Radius+8, moonHeight + moonSize / 2, 0.);
+	glScalef(1., 1., 1.);
+	SetMaterial(0.6, 0.6, 0.6, 0.);
+
+	glRotatef(90., 1., 0., 0.);
+	glutSolidSphere(2., 10, 10);
+	glDisable(GL_LIGHTING);
+	glColor3f(1., 1., 1.);
+	glPushMatrix();
 	//glTranslatef(-moonSize / 4., -0.2, -moonSize / 2);
+	glPushMatrix();
+
+	glTranslatef(-4, 0, 0);
+	glutSolidSphere(.15, 5, 5);
+
 	if (Light0On) {
-		SetSpotLight(GL_LIGHT0, 0., 0., 0., 0., 0., -1., 1., 1., 1.);
+		SetSpotLight(GL_LIGHT0, 0., 0., 0., -1., 0., 0., 1., 1., 1.);
 	}
 	else {
 		glDisable(GL_LIGHT0);
@@ -564,43 +606,6 @@ Display()
 	glPopMatrix();
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
-
-	//**************************************************************************************************************
-
-	// Draw Elon's car
-	glShadeModel(GL_FLAT);
-	glPushMatrix();
-	SetMaterial(0.5, 0., 0., 1.);
-	glRotatef((cos(Time*M_PI) + 1) * 180, 0., 1., 0.);
-	glTranslatef(ROAD_APOTHEM, moonHeight + moonSize / 2, 0.);
-	glScalef(1., 1., 2.);
-	glutSolidCube(1.);
-	// Draw the car lights
-	glDisable(GL_LIGHTING);
-	glColor3f(1., 1., 1.);
-	glPushMatrix();
-	glTranslatef(-moonSize / 2., -0.2, moonSize / 2);
-	glutSolidSphere(0.1, 10, 10);
-	if (Light0On) {
-		SetSpotLight(GL_LIGHT0, 0., 0., 0., 0., 0., 1., 1., 1., 1.);
-	}
-	else {
-		glDisable(GL_LIGHT0);
-	}
-	glPopMatrix();
-	glPushMatrix();
-	glTranslatef(moonSize / 4, -0.2, moonSize / 2);
-	glutSolidSphere(0.1, 10, 10);
-	if (Light1On) {
-		SetSpotLight(GL_LIGHT0, 0., 0., 0., 0., 0., 1., 1., 1., 1.);
-	}
-	else {
-		glDisable(GL_LIGHT1);
-	}
-	glPopMatrix();
-	glEnable(GL_LIGHTING);
-	glPopMatrix();
-
 	//**************************************************************************************************************
 
 	// since we are using glScalef( ), be sure normals get unitized:
@@ -628,11 +633,13 @@ Display()
 	MjbSphere(1., 50, 50);
 	glPopMatrix();
 
+
+	glPopMatrix();
 	// swap the double-buffered framebuffers:
 
 
 	//name
-
+	
 	glDisable(GL_DEPTH_TEST);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -1434,7 +1441,7 @@ SetPointLight(int ilight, float x, float y, float z, float r, float g, float b)
 	glLightfv(ilight, GL_DIFFUSE, Array3(r, g, b));
 	glLightfv(ilight, GL_SPECULAR, Array3(r, g, b));
 	glLightf(ilight, GL_CONSTANT_ATTENUATION, 1.);
-	glLightf(ilight, GL_LINEAR_ATTENUATION, 0.5);
+	glLightf(ilight, GL_LINEAR_ATTENUATION, 1);
 	glLightf(ilight, GL_QUADRATIC_ATTENUATION, 0.);
 	glEnable(ilight);
 }
@@ -1450,7 +1457,7 @@ SetSpotLight(int ilight, float x, float y, float z, float xdir, float ydir, floa
 	glLightfv(ilight, GL_DIFFUSE, Array3(r, g, b));
 	glLightfv(ilight, GL_SPECULAR, Array3(r, g, b));
 	glLightf(ilight, GL_CONSTANT_ATTENUATION, 1.);
-	glLightf(ilight, GL_LINEAR_ATTENUATION, 0.);
-	glLightf(ilight, GL_QUADRATIC_ATTENUATION, 0.1);
+	glLightf(ilight, GL_LINEAR_ATTENUATION, 1.);
+	glLightf(ilight, GL_QUADRATIC_ATTENUATION, 1);
 	glEnable(ilight);
 }
