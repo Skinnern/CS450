@@ -469,8 +469,8 @@ Display()
 	glRotatef(15., 0., 1., 0.);
 	glTranslatef(3., 0.0, 0.);
 	glColor3f(0., 0., 0.);
-	glutSolidCube(1.);
-	glScalef(1., 0.33, 1.);
+	//glutSolidCube(1.);
+	//glScalef(1., 0.33, 1.);
 	glDisable(GL_LIGHTING);
 
 	
@@ -490,43 +490,43 @@ Display()
 
 	}
 
-	// Green light
+	// white light
 	glTranslatef(0., 0.9, 0.);
-	SetPointLight(GL_LIGHT2, 0., 0., 0., 0., 1., 0.);
+	SetPointLight(GL_LIGHT2, 0., 0., 0., 1., 1., 1.);
 	//************************************MAKE AN ACTIVE MODE ALONGSIDE PASSIVE*******************
 	if (light == 0 && Light2On) { // On
 		glEnable(GL_LIGHT2);
-		glColor3f(0., 1.0, 0.);
+		glColor3f(1.0, 1.0, 1.);
 	}
 	else { // Off
 		glDisable(GL_LIGHT2);
-		//glColor3f(0., 0.2, 0.);
+		glColor3f(0.2, 0.2, 0.2);
 	}
 	glutSolidSphere(0.55, 30, 30);
 
-	// Yellow light
+	// blue light
 	glTranslatef(0., -0.9, 0.);
-	SetPointLight(GL_LIGHT3, 0., 0., 0., 1., 1., 0.);
+	SetPointLight(GL_LIGHT3, 0., 0., 0., 0., 0., 1.);
 	if (light == 1 && Light3On) { // On
 		glEnable(GL_LIGHT3);
-		glColor3f(1.0, 1.0, 0.);
+		glColor3f(0.0, 0.0, 1.);
 	}
 	else { // Off
 		glDisable(GL_LIGHT3);
-		glColor3f(0.2, 0.2, 0.);
+		glColor3f(0.0, 0.0, 0.2);
 	}
 	glutSolidSphere(0.55, 30, 30);
 
-	// Red light
+	// yellow light
 	glTranslatef(0., -0.9, 0.);
-	SetPointLight(GL_LIGHT4, 0., 0., 0., 1., 0., 0.);
+	SetPointLight(GL_LIGHT4, 0., 0., 0., 1., 1.0, 0.);
 	if (light == 2 && Light4On) { // On
 		glEnable(GL_LIGHT4);
-		glColor3f(1.0, 0., 0.);
+		glColor3f(1.0, 1.0, 0.);
 	}
 	else { // Off
 		glDisable(GL_LIGHT4);
-		glColor3f(0.2, 0., 0.);
+		glColor3f(0.2, 0.2, 0.);
 	}
 	glutSolidSphere(0.55, 30, 30);
 

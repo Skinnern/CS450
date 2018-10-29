@@ -1,28 +1,3 @@
-﻿  sample.cpp
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sphere.cpp(57): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sphere.cpp(58): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sphere.cpp(59): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sphere.cpp(62): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sphere.cpp(63): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sphere.cpp(64): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sphere.cpp(74): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sphere.cpp(75): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sphere.cpp(79): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sphere.cpp(80): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sphere.cpp(119): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sample.cpp(275): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sample.cpp(473): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sample.cpp(494): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sample.cpp(508): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sample.cpp(516): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sample.cpp(521): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sample.cpp(529): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sample.cpp(544): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sample.cpp(547): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sample.cpp(580): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sample.cpp(583): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sample.cpp(630): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\nicks\documents\github\cs450\project 4\sample2015\sample.cpp(1354): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-sample.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+﻿sample.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
   Sample.vcxproj -> C:\Users\nicks\Documents\GitHub\CS450\Project 4\Sample2015\.\Debug\Sample.exe
   Sample.vcxproj -> .\Debug/Sample.pdb (Full PDB)
