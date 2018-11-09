@@ -1,0 +1,20 @@
+﻿  project.cpp
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(407): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(408): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(409): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(410): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(411): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(412): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(413): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(414): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(415): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(417): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(397): warning C4101: 'V1': unreferenced local variable
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(396): warning C4101: 'Dt': unreferenced local variable
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(397): warning C4101: 'V0': unreferenced local variable
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(396): warning C4101: 'Ds': unreferenced local variable
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(397): warning C4101: 'V2': unreferenced local variable
+c:\users\nicks\documents\github\cs450\project 5\sample2015\project.cpp(1295): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+project.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+  Sample.vcxproj -> C:\Users\nicks\Documents\GitHub\CS450\Project 5\Sample2015\.\Debug\Sample.exe
+  Sample.vcxproj -> .\Debug/Sample.pdb (Full PDB)
