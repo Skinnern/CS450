@@ -1,9 +1,20 @@
 ﻿  sample.cpp
-c:\users\nicks\downloads\sample2015\sample2015\sample.cpp(808): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\downloads\sample2015\sample2015\sample.cpp(877): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\downloads\sample2015\sample2015\sample.cpp(890): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\downloads\sample2015\sample2015\sample.cpp(955): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\downloads\sample2015\sample2015\sample.cpp(1360): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(437): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(438): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(450): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(451): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(515): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(558): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(574): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(589): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(812): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(814): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(815): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(823): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(825): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(826): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(840): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 1\sample2015\sample.cpp(841): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 sample.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
-  Sample.vcxproj -> C:\Users\nicks\Downloads\Sample2015\Sample2015\.\Debug\Sample.exe
+  Sample.vcxproj -> C:\Users\nicks\Documents\GitHub\CS450\Project 1\Sample2015\.\Debug\Sample.exe
   Sample.vcxproj -> .\Debug/Sample.pdb (Full PDB)
