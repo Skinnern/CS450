@@ -148,9 +148,11 @@ const GLfloat Colors[][3] = {
 };
 GLfloat White[] = { 1., 1., 1., 1. };
 
-#define NUMCURVES 5
+#define NumberCurves 5
 #define NUMPOINTS 20
 
+//************************************************************************************************
+//points for our curves
 struct Point {
 	float x0, y0, z0;       // initial coordinates
 	float x, y, z;        // animated coordinates
@@ -166,6 +168,10 @@ struct Point {
 	}
 };
 
+//************************************************************************************************
+
+//************************************************************************************************
+//struct for our curves
 struct Curve {
 	float r, g, b;
 	Point p0, p1, p2, p3;
@@ -181,8 +187,9 @@ struct Curve {
 		p3.reset();
 	}
 };
+//************************************************************************************************
 
-Curve Curves[NUMCURVES];	// if you are creating a pattern of curves
+Curve Curves[NumberCurves];	// if you are creating a pattern of curves
 Curve Stem;                 // if you are not
 Curve leftStrand, rightStrand;
 
@@ -190,12 +197,15 @@ Curve leftStrand, rightStrand;
 #define HELIXHEIGHT 4
 Curve bar[NUMBARS];
 
+
+//************************************************************************************************
+//struct for the xyz coordinates
 struct xyz {
 	float x;
 	float y;
 	float z;
 };
-
+//************************************************************************************************
 
 // fog parameters:
 const GLfloat FOGCOLOR[4] = { .0, .0, .0, 1. };
@@ -225,12 +235,12 @@ bool    ControlPointsOn;
 bool    ControlLinesOn;
 
 
-
-// sphere parameters for alt mode:
-#define SPHERE_RADIUS   1
-#define SPHERE_SLICES   10//50
-#define SPHERE_STACKS   10//50
-
+//************************************************************************************************
+//sphere construction for points:
+#define SphereRadius   1
+#define SphereSlice   10
+#define SphereStack   10
+//************************************************************************************************
 
 // MARK: - Function prototypes
 
@@ -274,21 +284,6 @@ void RotateZ(Point *p, float deg, float xc, float yc, float zc);
 
 //*******************************************************************************
 
-/*
-void SetMaterial(float r, float g, float b, float shininess);
-void SetPointLight(int ilight, float x, float y, float z, float r, float g, float b);
-void SetSpotLight(int ilight, float x, float y, float z, float xdir, float ydir, float zdir, float r, float g, float b);
-float* Array3(float a, float b, float c);
-float* Array4(float a, float b, float c, float d);
-float* BlendArray3(float factor, float array0[3], float array1[3]);
-float* MulArray3(float factor, float array0[3]);
-
-unsigned char* BmpToTexture(char *filename, int *width, int *height);
-void MjbSphere(float radius, int slices, int stacks);
-*/
-
-// MARK: - Function definitions
-
 // main program:
 int main(int argc, char *argv[]) {
 	// turn on the glut package:
@@ -311,33 +306,17 @@ int main(int argc, char *argv[]) {
 	return 0;
 }
 
-
-// this is where one would put code that is to be called
-// everytime the glut main loop has nothing to do
-//
-// this is typically where animation parameters are set
-//
-// do not call Display() from here -- let glutMainLoop() do it
-
 void Animate() {
-	// put animation stuff in here -- change some global variables
-	// for Display() to find:
-	int ms = glutGet(GLUT_ELAPSED_TIME);                    // milliseconds
+	int ms = glutGet(GLUT_ELAPSED_TIME);
 	int ms2 = ms % (4 * MS_IN_THE_ANIMATION_CYCLE);
 	Time = (float)ms / (float)1000;
 	ms %= MS_IN_THE_ANIMATION_CYCLE;
-	TimeCycle = (float)ms / (float)MS_IN_THE_ANIMATION_CYCLE;    // [0., 1.]
+	TimeCycle = (float)ms / (float)MS_IN_THE_ANIMATION_CYCLE;
 
 	SwitchCycle = (float)ms2 / ((float)MS_IN_THE_ANIMATION_CYCLE * 4);
-
-	// force a call to Display() next time it is convenient:
 	glutSetWindow(MainWindow);
 	glutPostRedisplay();
 }
-
-
-
-// draw the complete scene:
 
 void Display() {
 	if (DebugOn)
@@ -366,11 +345,6 @@ void Display() {
 	GLint yb = (vy - v) / 2;
 	glViewport(xl, yb, v, v);
 
-
-	// set the viewing volume:
-	// remember that the Z clipping  values are actually
-	// given as DISTANCES IN FRONT OF THE EYE
-	// USE gluOrtho2D() IF YOU ARE DOING 2D !
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	if (WhichProjection == ORTHO)
@@ -512,7 +486,7 @@ void DrawCurve(Curve curve, GLfloat width) {
 
 		glPushMatrix();
 		glTranslatef(curve.p2.x, curve.p2.y, curve.p2.z);
-		glColor3f(0.8, 0.8, 0.8);
+		glColor3f(1, 1, 1);
 		glutSolidSphere(0.03, 50, 50);
 		glPopMatrix();
 
@@ -532,7 +506,7 @@ void DrawCurve(Curve curve, GLfloat width) {
 	glLineWidth(width); 
 
 	//set color for lines
-	glColor3f(curve.r, curve.g, curve.b);
+	glColor3f(curve.r, 0, curve.b);
 
 	//use linestrip
 	glBegin(GL_LINE_STRIP);
@@ -553,7 +527,13 @@ void DrawCurve(Curve curve, GLfloat width) {
 
 }
 
-//rotate our curves around the x axis
+
+
+
+
+
+//************************************************************************************************
+//Rotate curves around x axis
 void RotateX(Point *p, float deg, float xc, float yc, float zc) {
 	float rad = deg * (M_PI / 270.f);         // radians
 	float x = p->x0 - xc;
@@ -569,7 +549,11 @@ void RotateX(Point *p, float deg, float xc, float yc, float zc) {
 	p->z = zp + zc;
 }
 
-//rotate our curves around the y axis
+//************************************************************************************************
+
+
+//************************************************************************************************
+//Rotate curves around y axis
 void RotateY(Point *p, float deg, float xc, float yc, float zc) {
 	float rad = deg * (M_PI / 270.f);         // radians
 	float x = p->x0 - xc;
@@ -584,7 +568,10 @@ void RotateY(Point *p, float deg, float xc, float yc, float zc) {
 	p->y = yp + yc;
 	p->z = zp + zc;
 }
+//************************************************************************************************
 
+//************************************************************************************************
+//Rotate curves around z axis
 void RotateZ(Point *p, float deg, float xc, float yc, float zc) {
 	float rad = deg * (M_PI / 180.f);         // radians
 	float x = p->x0 - xc;
@@ -599,7 +586,7 @@ void RotateZ(Point *p, float deg, float xc, float yc, float zc) {
 	p->y = yp + yc;
 	p->z = zp + zc;
 }
-
+//************************************************************************************************
 
 void DoAxesMenu(int id) {
 	AxesOn = id;
