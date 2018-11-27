@@ -1,5 +1,22 @@
 #version 330 compatibility
 
+
+//out vec texture
+//out vec normal
+
+
+
+
+//reset
+
+//object manipulation
+
+
+
+
+
+
+
 out vec2 vST; // texture coords
 out vec3 vN; // normal vector
 out vec3 vL; // vector from point to light
@@ -20,12 +37,18 @@ main( )
     vN = normalize( gl_NormalMatrix * gl_Normal ); // normal vector
     vL = LightPosition - pos.xyz; // vector from the point to the light position
     vE = vec3( 0., 0., 0. ) - pos.xyz; // vector from the point to the eye position
-
+	//Set up our vector manipulation
 	vec3 vert = gl_Vertex.xyz;
 	if(vertPattern)
 	{
-		vert.y = vert.y +  sin( uTime * 2 * PI);
+		//Modify Y axis
+		vert.y = vert.y +  cos( uTime *8);
+		//Modify X axis
+		vert.x = vert.x +  cos( uTime *8);
+		//Modify Z axis
+		vert.z = vert.z +  cos( uTime *8);
 	}
+	//reset back to origin
     gl_Position = gl_ModelViewProjectionMatrix * vec4(vert, 1.);
 
 }

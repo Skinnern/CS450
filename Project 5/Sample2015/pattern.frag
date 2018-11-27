@@ -24,16 +24,18 @@ main( )
 
 	if(fragPattern)
 	{
-		if( vST.s >= 0. && vST.s <= (1. * (sin(uTime * PI))) ) 
+		//this will cause our cycle, where we have a point of rest, and a transition
+		if( vST.s >= .1 && vST.s <= (2 * (sin(uTime * PI))) ) 
 		{
-			myColor = vec3( sin(5. * uTime), sin(5. * uTime + PI), cos(5. * uTime) );
+			//change color depending on time 
+			myColor = vec3( sin(5. * uTime), sin(5. * uTime), 0 );
 		}
 	}
     vec3 ambient = uKa * myColor;
-    float d = max( dot(Normal,Light), 0. ); // only do diffuse if the light can see the point
+    float d = max( dot(Normal,Light), 0. ); //we will only do the diffuse if the light can see the point
     myColor = uColor;
-    myColor = vec3( .7, .7, .7 );
-    
+    myColor = vec3( .4, .4, .4 );
+    //apply our frag
     vec3 diffuse = uKd * d * myColor;
-    gl_FragColor = vec4( ambient + diffuse, 1. );
+    gl_FragColor = vec4( ambient + diffuse, .25 );
 }
