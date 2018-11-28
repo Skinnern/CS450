@@ -1,16 +1,2 @@
-﻿  SkinnernP1.cpp
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(508): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(892): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(894): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(896): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(898): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(932): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(934): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(936): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(938): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(1009): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(1022): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\nicks\documents\github\cs450\project 2\sample2015\skinnernp1.cpp(1087): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-SkinnernP1.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
-  Sample.vcxproj -> C:\Users\nicks\Documents\GitHub\CS450\Project 2\Sample2015\.\Debug\Sample.exe
-  Sample.vcxproj -> .\Debug/Sample.pdb (Full PDB)
+﻿musicvisualizer.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+LINK : fatal error LNK1158: cannot run 'rc.exe'

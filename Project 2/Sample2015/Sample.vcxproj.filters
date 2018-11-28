@@ -15,13 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SkinnernP1.cpp">
+    <ClCompile Include="musicvisualizer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\Desktop\CS381\CS381\heli.550">
-      <Filter>Source Files</Filter>
-    </None>
   </ItemGroup>
 </Project>
