@@ -1,2 +1,60 @@
-﻿musicvisualizer.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
-LINK : fatal error LNK1158: cannot run 'rc.exe'
+﻿  musicvisualizer.cpp
+c:\users\nicks\documents\github\cs450\project 2\sample2015\musicvisualizer.cpp(44): warning C4068: unknown pragma
+c:\users\nicks\documents\github\cs450\project 2\sample2015\glut_funcs.hpp(27): warning C4068: unknown pragma
+c:\users\nicks\documents\github\cs450\project 2\sample2015\musicvisualizer.cpp(176): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\project 2\sample2015\musicvisualizer.cpp(180): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\project 2\sample2015\musicvisualizer.cpp(296): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\nicks\documents\github\cs450\project 2\sample2015\musicvisualizer.cpp(296): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 2\sample2015\musicvisualizer.cpp(299): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\documents\github\cs450\project 2\sample2015\musicvisualizer.cpp(301): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\project 2\sample2015\musicvisualizer.cpp(315): warning C4305: 'argument': truncation from 'double' to 'float'
+musicvisualizer.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl InitFMOD(int)" (?InitFMOD@@YAXH@Z) referenced in function _main
+musicvisualizer.obj : error LNK2019: unresolved external symbol "float * * __cdecl freq_analysis(int)" (?freq_analysis@@YAPAPAMH@Z) referenced in function "void __cdecl Display(void)" (?Display@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl switchPaused(void)" (?switchPaused@@YAXXZ) referenced in function "void __cdecl Keyboard(unsigned char,int,int)" (?Keyboard@@YAXEHH@Z)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "float * __cdecl MulArray3(float,float * const)" (?MulArray3@@YAPAMMQAM@Z) referenced in function "void __cdecl InitGraphics(void)" (?InitGraphics@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl DoAxesMenu(int)" (?DoAxesMenu@@YAXH@Z) referenced in function "void __cdecl InitMenus(void)" (?InitMenus@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl DoDistortMenu(int)" (?DoDistortMenu@@YAXH@Z) referenced in function "void __cdecl InitMenus(void)" (?InitMenus@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl DoColorMenu(int)" (?DoColorMenu@@YAXH@Z) referenced in function "void __cdecl InitMenus(void)" (?InitMenus@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl DoDepthMenu(int)" (?DoDepthMenu@@YAXH@Z) referenced in function "void __cdecl InitMenus(void)" (?InitMenus@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl DoDebugMenu(int)" (?DoDebugMenu@@YAXH@Z) referenced in function "void __cdecl InitMenus(void)" (?InitMenus@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl DoMainMenu(int)" (?DoMainMenu@@YAXH@Z) referenced in function "void __cdecl InitMenus(void)" (?InitMenus@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl DoProjectMenu(int)" (?DoProjectMenu@@YAXH@Z) referenced in function "void __cdecl InitMenus(void)" (?InitMenus@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl DoRasterString(float,float,float,char const *)" (?DoRasterString@@YAXMMMPBD@Z) referenced in function "void __cdecl Display(void)" (?Display@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl MouseButton(int,int,int,int)" (?MouseButton@@YAXHHHH@Z) referenced in function "void __cdecl InitGraphics(void)" (?InitGraphics@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl MouseMotion(int,int)" (?MouseMotion@@YAXHH@Z) referenced in function "void __cdecl InitGraphics(void)" (?InitGraphics@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl Resize(int,int)" (?Resize@@YAXHH@Z) referenced in function "void __cdecl InitGraphics(void)" (?InitGraphics@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl Visibility(int)" (?Visibility@@YAXH@Z) referenced in function "void __cdecl InitGraphics(void)" (?InitGraphics@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl Axes(float)" (?Axes@@YAXM@Z) referenced in function "void __cdecl InitLists(void)" (?InitLists@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl SetMaterial(float,float,float,float)" (?SetMaterial@@YAXMMMM@Z) referenced in function "void __cdecl Display(void)" (?Display@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl SetPointLight(int,float,float,float,float,float,float)" (?SetPointLight@@YAXHMMMMMM@Z) referenced in function "void __cdecl Display(void)" (?Display@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl SetSpotLight(int,float,float,float,float,float,float,float,float,float)" (?SetSpotLight@@YAXHMMMMMMMMM@Z) referenced in function "void __cdecl Display(void)" (?Display@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "void __cdecl MjbSphere(float,int,int,float * *)" (?MjbSphere@@YAXMHHPAPAM@Z) referenced in function "void __cdecl Display(void)" (?Display@@YAXXZ)
+musicvisualizer.obj : error LNK2019: unresolved external symbol "unsigned char * __cdecl BmpToTexture(char *,int *,int *)" (?BmpToTexture@@YAPAEPADPAH1@Z) referenced in function "void __cdecl InitTextures(void)" (?InitTextures@@YAXXZ)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "float * White" (?White@@3PAMA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "float const (* Colors)[3]" (?Colors@@3QAY02$$CBMA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "char const * * ColorNames" (?ColorNames@@3PAPBDA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "int ActiveButton" (?ActiveButton@@3HA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "unsigned int AxesList" (?AxesList@@3IA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "bool AxesOn" (?AxesOn@@3_NA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "bool DistortOn" (?DistortOn@@3_NA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "bool TextureOn" (?TextureOn@@3_NA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "bool DayMode" (?DayMode@@3_NA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "bool DebugOn" (?DebugOn@@3_NA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "bool DepthCueOn" (?DepthCueOn@@3_NA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "unsigned int texDay" (?texDay@@3IA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "unsigned int texLight" (?texLight@@3IA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "unsigned int texMoon" (?texMoon@@3IA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "int MainWindow" (?MainWindow@@3HA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "float Scale" (?Scale@@3MA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "int WhichColor" (?WhichColor@@3HA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "int WhichProjection" (?WhichProjection@@3HA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "float Xrot" (?Xrot@@3MA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "float Yrot" (?Yrot@@3MA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "float Time" (?Time@@3MA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "float TimeCycle" (?TimeCycle@@3MA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "float SwitchCycle" (?SwitchCycle@@3MA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "bool Frozen" (?Frozen@@3_NA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "void (__cdecl* AnimateFunc)(void)" (?AnimateFunc@@3P6AXXZA)
+musicvisualizer.obj : error LNK2001: unresolved external symbol "int bounceMult" (?bounceMult@@3HA)
+.\Debug/Sample.exe : fatal error LNK1120: 48 unresolved externals
