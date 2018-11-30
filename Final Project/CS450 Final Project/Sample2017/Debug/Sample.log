@@ -1,5 +1,7 @@
-﻿  BmpToTexture.cpp
-c:\users\nicks\downloads\sample2017\bmptotexture.cpp(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+﻿  fmod_funcs.cpp
+c:\users\nicks\documents\github\cs450\final project\cs450 final project\sample2017\fmod_funcs.cpp(131): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450 final project\sample2017\fmod_funcs.cpp(132): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450 final project\sample2017\fmod_funcs.cpp(135): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450 final project\sample2017\fmod_funcs.cpp(136): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 BmpToTexture.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
-  Sample.vcxproj -> C:\Users\nicks\Downloads\Sample2017\.\Debug\Sample.exe
+  Sample.vcxproj -> C:\Users\nicks\Documents\GitHub\CS450\Final Project\CS450 Final Project\Sample2017\.\Debug\Sample.exe

@@ -72,7 +72,7 @@ void InitFMOD(int res) {
     
 //    result = fmod_system->createStream("stairway-to-heaven.mp3", FMOD_DEFAULT, 0, &sound);
 //    result = fmod_system->createStream("rise.mp3", FMOD_DEFAULT, 0, &sound);
-    result = fmod_system->createStream("delta-zone.mp3", FMOD_DEFAULT, 0, &sound);
+    result = fmod_system->createStream("videoplayback.mp3", FMOD_DEFAULT, 0, &sound);
     ERRCHECK(result);
 
     // Play the sound
