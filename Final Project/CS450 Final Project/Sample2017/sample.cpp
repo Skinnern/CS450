@@ -1,34 +1,21 @@
 //	Final Project: Music Visualizer
-//
-//	The objective is to create a 3D music visualizer.
-//
-//	The left mouse button does rotation
-//	The middle mouse button does scaling
-//	The user interface allows:
-//		1. The axes to be turned on and off
-//		2. The color of the axes to be changed
-//		3. Debugging to be turned on and off
-//		4. Depth cueing to be turned on and off
-//		5. The projection to be changed
-//		6. The transformations to be reset
-//		7. The program to quit
+
 //  The keyboard allows:
 //      m. Toggle music
-//      s. Toggle stage
+//      p. Toggle particles
 //      v. Toggle visualizer
 //      r. Toggle rotation
 //      0,1,2. Toggle lights
-//
-
 
 
 /* --- Note: Requires the FMOD low level API to be installed --- */
+#define M_PI   3.14159265358979323846264338327950288
 
 #include <stdio.h>
 #include <cstdlib>
 #include <ctype.h>
-#define _USE_MATH_DEFINES
 #include <cmath>
+#include <math.h>
 
 #ifdef WIN32
 #include <windows.h>
@@ -43,18 +30,14 @@
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#include <fmod.hpp>
 #include "fmod_funcs.hpp"
-#include "fmod_codec.h"
-#include "fmod_common.h"
-
 #include "glut_funcs.hpp"
 #include "utility_funcs.hpp"
 #include "sphere.hpp"
 #include "BmpToTexture.hpp"
 
 // title of these windows:
-const char *WINDOWTITLE = { "Nicholas Skinner - CS450 - Music Visualiser" };
+const char *WINDOWTITLE = { "Nicholas Skinner - CS450" };
 const char *GLUITITLE = { "User Interface Window" };
 // initial window size:
 #define INIT_WINDOW_SIZE 600
@@ -76,7 +59,6 @@ struct xyz {
 };
 
 bool VisualizerOn;
-bool StageOn;
 bool    Light0On;
 bool    Light1On;
 bool    Light2On;
@@ -92,7 +74,6 @@ const GLfloat BACKCOLOR[] = { 0., 0., 0., 1. };
 #define SPHERE_RADIUS   1
 #define SPHERE_SLICES   100
 #define SPHERE_STACKS   50
-#define M_PI   3.14159265358979323846264338327950288
 
 
 // MARK: - Main
@@ -106,6 +87,7 @@ int main(int argc, char *argv[]) {
 	InitGraphics();
 	InitTextures(); // import textures
 	InitLists(); // display structures that will not change
+
 
 	Reset(); // init global vars used by Display() (and post redisplay)
 
@@ -146,49 +128,8 @@ void Animate() {
 	glutPostRedisplay();
 }
 
-void drawPlatformOld() {
-	glPushMatrix();
 
-	glBegin(GL_QUADS);
-	glColor3ub(0, 128, 128);
-	glVertex3f(-2, -2, -2);
-	glVertex3f(-2, -2, 2);
-	glVertex3f(2, -2, 2);
-	glVertex3f(2, -2, -2);
-	glEnd();
 
-	glPopMatrix();
-}
-
-#define STAGE_LEFT      -2
-#define STAGE_RIGHT     2
-#define STAGE_HEIGHT    -2
-#define STAGE_RES       10
-
-void drawStage(float **spec) {
-	if (!spec) return;
-
-	glPushMatrix();
-
-	glColor3ub(0, 128, 128);
-
-	float divs = (float)(STAGE_RIGHT - STAGE_LEFT) / STAGE_RES;
-	for (float x = STAGE_LEFT; x < STAGE_RIGHT; x += divs) {
-		float newX = rerange(x, STAGE_LEFT, STAGE_RIGHT, -M_PI, M_PI);
-		float xBulge = (cosf(newX) + 1) * spec[1][5];
-		glBegin(GL_TRIANGLE_STRIP);
-		for (float z = STAGE_LEFT; z < STAGE_RIGHT; z += divs) {
-			float newZ = rerange(z, STAGE_LEFT, STAGE_RIGHT, -M_PI, M_PI);
-			float zBulge = (cosf(newZ) + 1) * spec[0][5];
-			float y = STAGE_HEIGHT - xBulge * zBulge * 80;
-			glVertex3f(x, y, z);
-			glVertex3f(x + divs, y, z);
-		}
-		glEnd();
-	}
-
-	glPopMatrix();
-}
 
 // draw the complete scene:
 
@@ -323,16 +264,13 @@ void Display() {
 	}
 
 	if (RotateOn) glRotatef(TimeCycle * 360, 0., 1., 0.);
-	if (VisualizerOn) MjbSphere(SPHERE_RADIUS, SPHERE_SLICES, SPHERE_STACKS, spec);
-
+	MjbSphere(SPHERE_RADIUS, SPHERE_SLICES, SPHERE_STACKS, spec);
 	if (TextureOn) glDisable(GL_TEXTURE_2D);
 
 	glDisable(GL_LIGHTING);
 	glPopMatrix();
 
 
-	/* Stage */
-	if (StageOn) drawStage(spec);
 
 
 	// draw some gratuitous text that just rotates on top of the scene:
@@ -357,7 +295,7 @@ void Display() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glColor3f(1., 1., 1.);
-	DoRasterString(5., 5., 0., "Nicholas Skinner - CS450");
+	DoRasterString(5., 5., 0., "Kyler Stole - CS 450 - Final Project");
 
 
 	// swap the double-buffered framebuffers:
@@ -407,6 +345,7 @@ void InitMenus() {
 	glutAddMenuEntry("Orthographic", ORTHO);
 	glutAddMenuEntry("Perspective", PERSP);
 
+
 	int bulgemenu = glutCreateMenu(DoBulgeMenu);
 	glutAddMenuEntry("2", 2);
 	glutAddMenuEntry("4", 4);
@@ -419,6 +358,7 @@ void InitMenus() {
 	glutAddSubMenu("Colors", colormenu);
 	glutAddSubMenu("Depth Cue", depthcuemenu);
 	glutAddSubMenu("Projection", projmenu);
+
 	glutAddSubMenu("Bulge", bulgemenu);
 	glutAddMenuEntry("Reset", RESET);
 	glutAddSubMenu("Debug", debugmenu);
@@ -579,13 +519,10 @@ void Keyboard(unsigned char c, int x, int y) {
 		fprintf(stderr, "Keyboard: '%c' (0x%0x)\n", c, c);
 
 	switch (c) {
-	case 'v': case 'V':
-		VisualizerOn = !VisualizerOn;
-		break;
 
-	case 's': case 'S':
-		StageOn = !StageOn;
-		break;
+
+
+
 
 	case 'm': case 'M':
 		switchPaused();
@@ -644,9 +581,6 @@ void Reset() {
 	Light0On = true;
 	Light1On = true;
 	Light2On = true;
-	VisualizerOn = true;
-	StageOn = false;
 	bounceMult = 8;
 	RotateOn = false;
 }
-

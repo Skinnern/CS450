@@ -1,10 +1,3 @@
-//
-//  fmod_funcs.cpp
-//  CS450 Final Project
-//
-//  Created by Kyler Stole on 11/25/16.
-//  Copyright © 2016 Kyler Stole. All rights reserved.
-//
 
 #include "fmod_funcs.hpp"
 
@@ -70,9 +63,7 @@ void InitFMOD(int res) {
     result = fmod_system->init(512, FMOD_INIT_NORMAL, NULL);
     ERRCHECK(result);
     
-//    result = fmod_system->createStream("stairway-to-heaven.mp3", FMOD_DEFAULT, 0, &sound);
-//    result = fmod_system->createStream("rise.mp3", FMOD_DEFAULT, 0, &sound);
-    result = fmod_system->createStream("videoplayback.mp3", FMOD_DEFAULT, 0, &sound);
+    result = fmod_system->createStream("delta-zone.mp3", FMOD_DEFAULT, 0, &sound);
     ERRCHECK(result);
 
     // Play the sound
@@ -96,23 +87,9 @@ float** freq_analysis(int res) {
     /* Per-frame update code */
     fmod_system->update();
     
-//    unsigned int len;
-//    char s[256];
-//    int val;
-//    
-//    fftdsp->getParameterInt(FMOD_DSP_FFT_WINDOWSIZE, &val, s, 256);
-//    printf("Window size: %d. %s\n", val, s);
-    
     FMOD_DSP_PARAMETER_FFT *fftdata;
     result = fftdsp->getParameterData(FMOD_DSP_FFT_SPECTRUMDATA, (void **)&fftdata, NULL, NULL, 0);
     ERRCHECK(result);
-    
-//    for (int channel = 0; channel < 2; channel++)
-//        for (int bin = 0; bin < res; bin++)
-//            spec[channel][bin] = (fftdata->spectrum[channel][bin] +
-//                                  fftdata->spectrum[channel][bin+1] +
-//                                  fftdata->spectrum[channel][bin+2] +
-//                                  fftdata->spectrum[channel][bin+3]) / 4;
     
     if (fftdata->length < res) return NULL;
     
