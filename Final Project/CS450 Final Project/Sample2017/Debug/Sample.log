@@ -1,7 +1,8 @@
-﻿  fmod_funcs.cpp
-c:\users\nicks\documents\github\cs450\final project\cs450 final project\sample2017\fmod_funcs.cpp(131): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\final project\cs450 final project\sample2017\fmod_funcs.cpp(132): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\final project\cs450 final project\sample2017\fmod_funcs.cpp(135): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\nicks\documents\github\cs450\final project\cs450 final project\sample2017\fmod_funcs.cpp(136): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+﻿  sample.cpp
+c:\users\nicks\documents\github\cs450\final project\cs450 final project\sample2017\sample.cpp(44): warning C4068: unknown pragma
+c:\users\nicks\documents\github\cs450\final project\cs450 final project\sample2017\glut_funcs.hpp(24): warning C4068: unknown pragma
+c:\users\nicks\documents\github\cs450\final project\cs450 final project\sample2017\sample.cpp(95): warning C4005: 'M_PI': macro redefinition
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\corecrt_math_defines.h(22): note: see previous definition of 'M_PI'
+c:\users\nicks\documents\github\cs450\final project\cs450 final project\sample2017\sample.cpp(297): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
 BmpToTexture.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
   Sample.vcxproj -> C:\Users\nicks\Documents\GitHub\CS450\Final Project\CS450 Final Project\Sample2017\.\Debug\Sample.exe

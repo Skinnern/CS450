@@ -357,7 +357,7 @@ void Display() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glColor3f(1., 1., 1.);
-	DoRasterString(5., 5., 0., "Kyler Stole - CS 450 - Final Project");
+	DoRasterString(5., 5., 0., "Nicholas Skinner - CS450");
 
 
 	// swap the double-buffered framebuffers:
