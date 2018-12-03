@@ -1,10 +1,3 @@
-//
-//  utility_funcs.cpp
-//  CS450 Final Project
-//
-//  Created by Kyler Stole on 12/1/16.
-//  Copyright © 2016 Kyler Stole. All rights reserved.
-//
 
 #include "utility_funcs.hpp"
 

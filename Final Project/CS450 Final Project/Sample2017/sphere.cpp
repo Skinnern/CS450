@@ -4,6 +4,9 @@
 //
 
 #include "sphere.hpp"
+#include <stdio.h>
+#include <iostream>
+using namespace std;
 #define M_PI   3.14159265358979323846264338327950288
 
 struct point {
@@ -45,15 +48,19 @@ void MjbSphere(float rad, int slices, int stacks, float** spec) {
     // fill the Pts structure:
     for (int ilat = 0; ilat < NumLats; ilat++) {
         float lat = -M_PI/2.  +  M_PI * (float)ilat / (float)(NumLats-1);
+		std::cout << lat << "\n";
         float xz = cos(lat);
         float y = sin(lat);
-        for (int ilng = 0; ilng < NumLngs; ilng++) {
-            if (!spec) {
+        
+		for (int ilng = 0; ilng < NumLngs; ilng++) {
+            
+			if (!spec) {
                 radius = rad;
             } else if (ilat > NumLats/2) {
                 float newLat = rerange(ilat, NumLats/2, NumLats, -M_PI, M_PI);
                 float bulge = spec[0][ilng];
                 radius = rad + (cosf(newLat) + 1) * bounceMult * bulge;
+
             } else {
                 int newLng = ilng + NumLngs/2;
                 if (newLng >= NumLngs) newLng -= NumLngs;
@@ -69,7 +76,8 @@ void MjbSphere(float rad, int slices, int stacks, float** spec) {
             p = PtsPointer(ilat, ilng);
             p->x = radius * x;  p->y = radius * y;  p->z = radius * z;
             p->nx = x;          p->ny = y;          p->nz = z;
-            if (DistortOn) {
+            
+			if (DistortOn) {
                 p->s = (lng + M_PI) / (2.*M_PI);
                 p->t = (lat + sinf(2*M_PI*(TimeCycle + (float)ilng/(float)NumLngs)) + M_PI/2.) / M_PI;
             } else {
@@ -77,6 +85,7 @@ void MjbSphere(float rad, int slices, int stacks, float** spec) {
                 p->t = (lat + M_PI/2.) / M_PI;
             }
         }
+		
     }
     
     top.x =  0.;		top.y  = radius;	top.z = 0.;
