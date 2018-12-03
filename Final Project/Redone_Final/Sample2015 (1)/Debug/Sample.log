@@ -1,0 +1,26 @@
+﻿  sample.cpp
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(546): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(548): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(554): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(564): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(582): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(585): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(596): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(598): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(599): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(600): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(601): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(623): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(636): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(654): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(658): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(669): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(677): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(678): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(742): warning C4244: '=': conversion from 'sf_count_t' to 'int', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(757): warning C4244: '=': conversion from 'sf_count_t' to 'int', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(760): warning C4018: '<': signed/unsigned mismatch
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(884): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+sample.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+  Sample.vcxproj -> C:\Users\nicks\Documents\GitHub\CS450\Final Project\Redone_Final\Sample2015 (1)\.\Debug\Sample.exe
+  Sample.vcxproj -> .\Debug/Sample.pdb (Full PDB)
