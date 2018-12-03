@@ -1,1 +1,43 @@
-﻿  Music_Visualizer.vcxproj -> C:\Users\mast3\Downloads\Music-Visualizer-master\Debug\Music_Visualizer.exe
+﻿  main.cpp
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(144): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(260): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(262): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(268): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(278): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(296): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(299): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(310): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(312): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(313): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(314): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(315): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(337): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(350): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(368): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(372): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(383): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(391): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(392): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(453): warning C4244: '=': conversion from 'sf_count_t' to 'int', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(468): warning C4244: '=': conversion from 'sf_count_t' to 'int', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(471): warning C4018: '<': signed/unsigned mismatch
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(522): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(562): error C2065: 'DebugOn': undeclared identifier
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(572): error C3861: 'switchPaused': identifier not found
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(575): error C2065: 'ESCAPE': undeclared identifier
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(575): error C2131: expression did not evaluate to a constant
+  c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(575): note: failure was caused by non-constant arguments or reference to a non-constant symbol
+  c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(575): note: see usage of 'ESCAPE'
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(576): error C2065: 'QUIT': undeclared identifier
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(576): error C3861: 'DoMainMenu': identifier not found
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(580): error C2065: 'Frozen': undeclared identifier
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(581): error C2065: 'Frozen': undeclared identifier
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(582): error C2065: 'Animate': undeclared identifier
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(586): error C2065: 'RotateOn': undeclared identifier
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(590): error C2065: 'Light0On': undeclared identifier
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(593): error C2065: 'Light1On': undeclared identifier
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(596): error C2065: 'Light2On': undeclared identifier
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(604): error C2601: 'main': local function definitions are illegal
+  c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(561): note: this line contains a '{' which has not yet been matched
+c:\users\nicks\documents\github\cs450\final project\cs450_final\main.cpp(561): fatal error C1075: the left brace '{' was unmatched at the end of the file

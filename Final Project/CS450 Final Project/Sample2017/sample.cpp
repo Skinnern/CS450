@@ -24,8 +24,6 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <glut.h>
-#else
-#include <GLUT/glut.h>
 #endif
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
@@ -35,6 +33,33 @@
 #include "utility_funcs.hpp"
 #include "sphere.hpp"
 #include "BmpToTexture.hpp"
+
+#include <iostream>
+#include <cstdlib>
+#include <stdio.h>
+#include <memory.h>
+#include <cmath>
+#include <fftw3.h>
+#include "sndfile.h"
+#include "portaudio.h"
+
+
+#define SAMPLE_RATE 441000
+#define WIN 1024
+#define buffer_size 1024
+#define PI 3.14159265358979323846264338327950288
+
+const int fft_size = 512;
+double windowedSample[WIN];
+float *buf, leftch[WIN], rightch[WIN];
+int readSize=0, len;//to strore the size of current frame for the display func to pass to fft
+static char CHANNEL[10];//MONO or STEREO
+bool finished=false;//finished playing or not
+int eff=1;//variable indicating the theme number
+int channel=1;
+double bartop[fft_size], radii[5];
+char audpath[100] = "music_files/Horizon.wav" ;//demo file
+PaStream *stream;//portaudio stream
 
 // title of these windows:
 const char *WINDOWTITLE = { "Nicholas Skinner - CS450" };
