@@ -136,7 +136,6 @@
     <ClCompile Include="BmpToTexture.cpp" />
     <ClCompile Include="fmod_funcs.cpp" />
     <ClCompile Include="glut_funcs.cpp" />
-    <ClCompile Include="particles.cpp" />
     <ClCompile Include="sample.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>

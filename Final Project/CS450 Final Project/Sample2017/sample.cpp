@@ -72,7 +72,7 @@ const GLfloat BACKCOLOR[] = { 0., 0., 0., 1. };
 
 // sphere parameters:
 #define SPHERE_RADIUS   1
-#define SPHERE_SLICES   100
+#define SPHERE_SLICES   500
 #define SPHERE_STACKS   50
 
 
@@ -295,7 +295,7 @@ void Display() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glColor3f(1., 1., 1.);
-	DoRasterString(5., 5., 0., "Kyler Stole - CS 450 - Final Project");
+	DoRasterString(5., 5., 0., "Nicholas Skinner - Final - CS450");
 
 
 	// swap the double-buffered framebuffers:
