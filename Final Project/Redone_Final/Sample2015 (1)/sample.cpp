@@ -278,9 +278,10 @@ PaStream *stream;//portaudio stream
 //***************************************************************
 
 
-
+float SceneRot; 
 
 //even more audio stuff and declarations
+//****************************************************************
 GLsizei width = 800;
 GLsizei height = 600;
 GLsizei last_width = width;
@@ -440,14 +441,19 @@ void timeDomain()
 	GLfloat x = -2.0f, inc = 4.0f / readSize, y = 0.0f;
 
 	glPushMatrix();
-	glColor3f(0.4f, 0.4f, 1.0f);
+	float ang = float(360.0 / (float)len), angle = 0, u;
+	glColor3f(0, float(rand()) / float(RAND_MAX), 0.7);
 	glNormal3f(0.0f, 0.0f, 1.0f);// set vertex normals (for somewhat controlled lighting)
 	glTranslatef(x, y, 0.0f);
 	glScalef(inc, 1.0, 1.0);
 
 	glBegin(GL_LINE_STRIP);//drawing the timedomain waveform
-	for (int i = 0; i<readSize; i++)
-		glVertex2f(x++, buf[i]);
+	for (int i = 0; i < readSize; i++) {
+		glVertex3f(x++, buf[i], 0);
+		glVertex3f(x++, buf[i], 1);
+		//glVertex3f(x++, buf[i]-.15, 0);
+		//glVertex3f(x++, buf[i]-.15, 1);
+	}
 	glEnd();
 	glPopMatrix();
 
@@ -633,7 +639,8 @@ void transformed_display()
 		glBegin(GL_LINE_STRIP);
 		for (float i = 0; i <= 360; i++)
 		{
-			glVertex2f(v*cos(i*PI / 180), v*sin(i*PI / 180));
+			glVertex3f(v*cos(i*PI / 180), v*sin(i*PI / 180), 0);
+			glVertex3f(v*cos(i*PI / 180), v*sin(i*PI / 180), 1);
 		}
 		glEnd();
 		glPopMatrix();
@@ -850,6 +857,14 @@ Animate( )
 	// put animation stuff in here -- change some global variables
 	// for Display( ) to find:
 
+	float Time;
+	#define MS_IN_THE_ANIMATION_CYCLE	10000
+	//. . .
+	int ms = glutGet(GLUT_ELAPSED_TIME);	// milliseconds
+	ms %= MS_IN_THE_ANIMATION_CYCLE;
+	Time = (float)ms / (float)MS_IN_THE_ANIMATION_CYCLE;
+	SceneRot = Time * 360;
+
 	// force a call to Display( ) next time it is convenient:
 
 	glutSetWindow( MainWindow );
@@ -861,6 +876,9 @@ Animate( )
 
 void Display()
 {
+
+
+	
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.0f, 0.08f, 0.08f, 0.3f);
 
@@ -878,7 +896,7 @@ void Display()
 
 
 	//*************************************************************
-	sprintf(now, "Current Song : %s || Channel: %s", str1, CHANNEL);
+	sprintf(now, "Song : %s || Channel: %s", str1, CHANNEL);
 	char *ch = now;
 	glPushMatrix();
 	glTranslatef(-1.8, 1.2, 0.0);
@@ -890,6 +908,10 @@ void Display()
 
 	glPopMatrix();
 
+
+
+
+
 	if (eff == 1)//first theme: time domain waveform
 		timeDomain();
 	else
@@ -900,6 +922,19 @@ void Display()
 		close_audio();
 		exit(0);
 	}
+
+
+	// uniformly scale the scene:
+	if (Scale < MINSCALE)
+		Scale = MINSCALE;
+	glScalef((GLfloat)Scale, (GLfloat)Scale, (GLfloat)Scale);
+	glPopMatrix();
+
+	if (AxesOn)
+		glCallList(AxesList);
+
+
+
 }
 
 
