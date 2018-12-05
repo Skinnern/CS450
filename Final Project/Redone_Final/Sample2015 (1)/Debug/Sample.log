@@ -20,10 +20,10 @@ c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\
 c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(676): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(684): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(685): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(749): warning C4244: '=': conversion from 'sf_count_t' to 'int', possible loss of data
-c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(764): warning C4244: '=': conversion from 'sf_count_t' to 'int', possible loss of data
-c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(767): warning C4018: '<': signed/unsigned mismatch
-c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(902): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(728): warning C4244: '=': conversion from 'sf_count_t' to 'int', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(743): warning C4244: '=': conversion from 'sf_count_t' to 'int', possible loss of data
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(746): warning C4018: '<': signed/unsigned mismatch
+c:\users\nicks\documents\github\cs450\final project\redone_final\sample2015 (1)\sample.cpp(881): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 sample.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
   Sample.vcxproj -> C:\Users\nicks\Documents\GitHub\CS450\Final Project\Redone_Final\Sample2015 (1)\.\Debug\Sample.exe
   Sample.vcxproj -> .\Debug/Sample.pdb (Full PDB)

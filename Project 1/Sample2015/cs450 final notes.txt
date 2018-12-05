@@ -1,0 +1,64 @@
+
+VERTEX BUFFER OBJECTS
+
+vertex buffer objects are objects containing vertex data that can be used directly from the graphics hardware without consulting system memory first
+vertex buffer objects will reside in the graphics hardware
+vertex buffer objects offer a harder, but more efficent implementation of graphical asset access
+
+GL_ARRAY_BUFFER vs. GL_ELEMENT_ARRAY_BUFFER
+
+GL_ARRAY_BUFFER target for buffer objects represents the intent to use that buffer object for vertex attribute data
+
+GL_ELEMENT_ARRAY_BUFFER is used to indicate the buffer you're presenting contains the indices of each element in the "other" ( GL_ARRAY_BUFFER ) buffer.
+
+Drawarrays faster than drawelements, as long as shared verticies are not used
+
+In general the DrawElements method should be faster, because if Vertices are shared by two or more faces (and it should be like that), than they aren't send trough the bus twice or more. 
+
+
+
+
+
+
+OpenGL "Transparency": 
+ITS REALLY BLENDING
+WHATS THE DIFFERENCE? real transparency is subtractive color process, red through pure green glass is black - opengl transparency will make red through green a shade of yellow. 
+WHEN DO WE CARE? when we want to see inside something, we will use transparency. it will not replicate what would really happen, but is a good way to display different layers
+HOW TO ASK FOR TEANSPARENCY? - enable blend, make zbuffer read only, get how much of what will be written to destination, re-enable z buffer and disable blend.
+
+
+
+
+
+GLM
+What is it? - set of c++ classes and functions to fill programming gaps in basic vector and matrix mathematics
+Why do we care? OPengl transformation functions are depricated, new libraries with better implementations exist
+glLoadMatrixf() - loads a specified matrix into opengl
+glmultiMatrixf() - can view different model matricies,and projection matricies
+
+
+
+ Geometric Modeling
+Meshes. - collection of verticies faces and edges that define the shape of a 3d object
+Lattices. - ??????????????????????????????????????????????????????????????????????????????????????????????
+Bézier curves. - two dimensional curve with graphical applications - can be altered by moving handles 
+The fact that Bézier surfaces exist, and the bicubic ones are sculpted with 16 points. 
+Constructive solid geometry (CSG). - modeling using boolean ooperatiors (union, intersection, difference, etc...
+Simplified euler's formula = F – E + V = 2
+
+
+
+
+
+Rendering:
+What the Rendering Equation means (you don't need to know the equation itself). - lifht shining from point is equal to light emitted by the point plus the reflectivity of all light arriving from other points
+Two types of rendering: start at the object, start at the eye. 
+- start at object is what we've been doing, start with geometry and project it to the pixels 
+- start at eye - ray tracing - 
+OpenGL rendering: Painter's method, Z-buffer. 
+-Painter's method = Sort your polygons in 3D by depth and draw them back-to-front.
+-z buffer - stores depth of pixel, only allow closest pixel in xy range to be seen
+Local versus Global illumination. 
+Radiosity: what it is good at, what it isn't, how it models light transport, system of equations. 
+Ray-tracing: what it is good at, what it isn't, how it models light transport, intersectng a ray with a xxx. 
+Sub-surface scattering: what materials is it good for creating the illusion of?.

@@ -273,7 +273,7 @@ bool finished=false;//finished playing or not
 int eff=1;//variable indicating the theme number
 int channel=1;
 double bartop[fft_size], radii[5];
-char audpath[100] = "Horizon.wav" ;//demo file
+char audpath[100] = "Music.wav" ;//demo file
 PaStream *stream;//portaudio stream
 //***************************************************************
 
@@ -689,28 +689,7 @@ void transformed_display()
 		glPopMatrix();
 
 
-		//The horizontal waveform in the background
-		GLfloat x = -2.0f, inc = 4.0f / len, y = 0.0f;
-		glPushMatrix();
-		glColor3f(1, 1, 0);
-		if (mam>0.1)
-			glScalef(1.0, 0.5f, 1.0);
 
-		glBegin(GL_LINES);
-		for (int i = 0; i<len; i++)
-		{
-			glVertex2f(x, 0);
-			glVertex2f(x, abs(leftch[i]));
-			glVertex2f(x, 0);
-			glVertex2f(x, 0 - abs(rightch[i]));
-
-			x += inc;
-		}
-
-		glEnd();
-		glPopMatrix();
-
-		glColor3f(1, 1, 1);
 	}
 
 	glFlush();
@@ -811,10 +790,10 @@ void init_audio()
 	for (int i = 0; i<fft_size; i++)
 		bartop[i] = -1.0;
 
-	/* start portaudio */
+	//start portaudio
 	Pa_Initialize();
 
-	/* set the output parameters */
+	// set the output parameters 
 	outputParameters.device = Pa_GetDefaultOutputDevice();
 	outputParameters.channelCount = data->sfInfo.channels;
 	if (data->sfInfo.channels == 1) strcpy(CHANNEL, "MONO"); else strcpy(CHANNEL, "STEREO");
@@ -832,7 +811,7 @@ void init_audio()
 		exit(1);
 	}
 
-	/* when we start the stream, the callback starts getting called */
+	//when we start the stream, callback will start
 	Pa_StartStream(stream);
 
 }
@@ -896,7 +875,7 @@ void Display()
 
 
 	//*************************************************************
-	sprintf(now, "Song : %s || Channel: %s", str1, CHANNEL);
+	sprintf(now, "Song : %s ", str1);
 	char *ch = now;
 	glPushMatrix();
 	glTranslatef(-1.8, 1.2, 0.0);
@@ -932,8 +911,10 @@ void Display()
 
 	if (AxesOn)
 		glCallList(AxesList);
-
-
+	/*
+	glColor3f(1., 1., 1.);
+	DoRasterString(5., 5., 0., "Nicholas Skinner - CS 450 - Project 6");
+	*/
 
 }
 
